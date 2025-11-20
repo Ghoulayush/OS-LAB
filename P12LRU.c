@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-int findLRU(int time[], int n)
-{
+int findLRU(int time[], int n){
     int i, minimum = time[0], pos = 0;
     for (i = 1; i < n; ++i)
     {
@@ -14,8 +13,7 @@ int findLRU(int time[], int n)
     return pos;
 }
 
-int main()
-{
+int main(){
     int frames[10], pages[30], time[10];
     int frameCount, pageCount, counter = 0, flag1, flag2;
     int i, j, pos, faults = 0, hits = 0;
@@ -29,13 +27,10 @@ int main()
     for (i = 0; i < frameCount; ++i)
         frames[i] = -1;
     printf("\n");
-    for (i = 0; i < pageCount; ++i)
-    {
+    for (i = 0; i < pageCount; ++i){
         flag1 = flag2 = 0;
-        for (j = 0; j < frameCount; ++j)
-        {
-            if (frames[j] == pages[i])
-            {
+        for (j = 0; j < frameCount; ++j){
+            if (frames[j] == pages[i]){
                 counter++;
                 time[j] = counter;
                 flag1 = flag2 = 1;
@@ -43,12 +38,9 @@ int main()
                 break;
             }
         }
-        if (flag1 == 0)
-        {
-            for (j = 0; j < frameCount; ++j)
-            {
-                if (frames[j] == -1)
-                {
+        if (flag1 == 0){
+            for (j = 0; j < frameCount; ++j){
+                if (frames[j] == -1){
                     counter++;
                     faults++;
                     frames[j] = pages[i];
@@ -58,8 +50,7 @@ int main()
                 }
             }
         }
-        if (flag2 == 0)
-        {
+        if (flag2 == 0){
             pos = findLRU(time, frameCount);
             counter++;
             faults++;
@@ -72,8 +63,7 @@ int main()
         else
             printf("MISS\t");
         printf("FRAMES: ");
-        for (j = 0; j < frameCount; ++j)
-        {
+        for (j = 0; j < frameCount; ++j){
             if (frames[j] != -1)
                 printf("%d ", frames[j]);
             else

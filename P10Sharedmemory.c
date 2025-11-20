@@ -9,7 +9,7 @@
 int main(){
     int shmid;
     char *shared_memory;
-    printf("Name: MANVI  \n");
+    printf("Name: AYUSH RAMOLA  \n");
     printf("Roll no.: 41 \n");
     key_t Key = ftok("shmfile.txt",65);
     if(Key == -1){
