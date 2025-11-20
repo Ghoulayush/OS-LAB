@@ -13,9 +13,9 @@ int main(){
     key_t key;
     int msgid;
     key = ftok("progfile", 65);
-    printf("Unique Key Created using ftok: 1090689797 \n ");
+    printf("Unique Key Created using ftok: %d \n ", key);
     msgid = msgget(key, 0666 | IPC_CREAT);
-    printf("Message Queue ID: 2 \n");
+    printf("Message Queue ID: %d \n",msgid);
     message.msg_type = 1;
     printf("Enter the message: ");
     fgets(message.msg_text, 100, stdin);
