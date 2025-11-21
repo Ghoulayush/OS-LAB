@@ -56,10 +56,16 @@ int main()
             }
         }
 
-        printf("%d\t%s\t", page, hit ? "Hit" : "Fault");
+        if (hit)
+            printf("%d\tHit\t", page);
+        else
+            printf("%d\tFault\t", page);
         for (int j = 0; j < frames; j++)
         {
-            printf("%c%d ", frame[j] == -1 ? '-' : ' ', frame[j] == -1 ? 0 : frame[j]);
+            if (frame[j] == -1)
+                printf("- ");
+            else
+                printf("%d ", frame[j]);
         }
         printf("\n");
     }
